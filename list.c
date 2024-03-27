@@ -116,7 +116,6 @@ void * popFront(List * list)
 {
   if(list->head == NULL)
     return NULL;
-  Node *aux = list->head;
   list->head = list->head->next;
   if(list->head != NULL)
     list->head->prev = NULL;
