@@ -95,7 +95,7 @@ void pushBack(List * list, void * data)
     list->head = newNode;
   list->tail =newNode;
   list->current = list->tail;
-  //pushCurrent(list,data);  
+  pushCurrent(list,data);  
 }
 
 void pushCurrent(List * list, void * data) {
