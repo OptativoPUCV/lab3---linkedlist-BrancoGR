@@ -122,17 +122,36 @@ void * popFront(List * list)
   if(list->head == NULL)
     list->tail = NULL;
   list->current = list->head;
-  return list->head->data;
-  //return;// popCurrent(list);
+  return popCurrent(list);
 }
 
-void * popBack(List * list) {
-    list->current = list->tail;
-    return popCurrent(list);
-}
-
-void * popCurrent(List * list) {
+void * popBack(List * list)
+{
+  if(list->tail == NULL)
     return NULL;
+  list->tail = list->tail->prev;
+  if(list->tail != NULL)
+    list->tail->next = NULL;
+  if(list->tail == NULL)
+    list->head = NULL;
+  list->current = list->tail;
+  return popCurrent(list);
+}
+
+void * popCurrent(List * list)
+{
+  if(list->current == NULL)
+    return NULL;
+  list->current->prev->next = list->current->next;
+  if(list->current->next != NULL)
+    list->current->next->prev = list->current->prev;
+  if(list->current == list->head)
+    list->head = list->current->next;
+  if(list->current == list->tail)
+    list->tail = list->current->prev;
+  list->current = list->current->next;
+  return list->current->data;
+  
 }
 
 void cleanList(List * list) {
