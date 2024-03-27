@@ -194,3 +194,17 @@ Wed 27 Mar 2024 06:57:12 PM UTC:
  tests:  11|1
 total_score: 55/70
 def74be
+Wed 27 Mar 2024 06:57:44 PM UTC: 
+ list.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:5:
+list.c: In function ‘popFront’:
+list.c:125:3: error: ‘return’ with no value, in function returning non-void [-Werror=return-type]
+  125 |   return;// popCurrent(list);
+      |   ^~~~~~
+list.c:115:8: note: declared here
+  115 | void * popFront(List * list)
+      |        ^~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+30d92c6

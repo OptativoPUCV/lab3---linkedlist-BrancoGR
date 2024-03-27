@@ -122,7 +122,7 @@ void * popFront(List * list)
   if(list->head == NULL)
     list->tail = NULL;
   list->current = list->head;
-  return popCurrent(list);
+  return;// popCurrent(list);
 }
 
 void * popBack(List * list) {
